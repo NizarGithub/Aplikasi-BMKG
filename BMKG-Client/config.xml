@@ -1,11 +1,20 @@
+<!--
+@Author: Rizki Mufrizal <rizki>
+@Date:   2016-03-26T22:48:38+07:00
+@Email:  mufrizalrizki@gmail.com
+@Last modified by:   rizki
+@Last modified time: 2016-03-26T22:59:52+07:00
+@License: apache2
+-->
+
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.bmkgcuaca334163" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>BMKG-Cuaca</name>
+  <name>Aplikasi BMKG</name>
   <description>
-        An Ionic Framework and Cordova project.
+        merupakan project bmkg
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="mufrizalrizki@gmail.com" href="https://rizkimufrizal.github.io/">
+      Rizki Mufrizal
     </author>
   <content src="index.html"/>
   <access origin="*"/>
