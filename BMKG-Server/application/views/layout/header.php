@@ -1,3 +1,12 @@
+<!--
+@Author: Rizki Mufrizal <rizki>
+@Date:   2016-03-26T22:49:40+07:00
+@Email:  mufrizalrizki@gmail.com
+@Last modified by:   rizki
+@Last modified time: 2016-03-26T22:55:07+07:00
+@License: apache2
+-->
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -7,7 +16,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url(); ?>">Aplikasi Penjadwalan</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">Aplikasi BMKG</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
