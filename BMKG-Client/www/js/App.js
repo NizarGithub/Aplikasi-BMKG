@@ -3,11 +3,11 @@
 * @Date:   2016-03-17T16:59:22+07:00
 * @Email:  mufrizalrizki@gmail.com
 * @Last modified by:   rizki
-* @Last modified time: 2016-03-17T21:41:19+07:00
+* @Last modified time: 2016-03-26T23:00:49+07:00
 * @License: apache2
 */
 
-angular.module('bmkg', ['ionic', 'xml'])
+angular.module('bmkg', ['ionic'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -23,9 +23,7 @@ angular.module('bmkg', ['ionic', 'xml'])
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-
-    $httpProvider.interceptors.push('xmlHttpInterceptor');
+  .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('tab', {
