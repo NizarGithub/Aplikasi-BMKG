@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 @Last modified by:   rizki
 @Last modified time: 2016-03-27T14:28:17+07:00
 @License: apache2
- */
+*/
 
 class Gempa extends CI_Model
 {
