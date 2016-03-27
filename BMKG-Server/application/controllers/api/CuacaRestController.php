@@ -7,9 +7,9 @@
 @Last modified by:   rizki
 @Last modified time: 2016-03-26T22:48:22+07:00
 @License: apache2
- */
+*/
 
-require APPPATH . '/libraries/REST_Controller.php';
+require APPPATH.'/libraries/REST_Controller.php';
 
 class CuacaRestController extends REST_Controller
 {
@@ -32,9 +32,9 @@ class CuacaRestController extends REST_Controller
         $cuacaDetail = $this->CuacaDetail->ambilDataCuacaDetail($idCuaca);
 
         $response = array(
-            'tanggal' => $tanggal,
-            'content' => $cuacaDetail,
-        );
+          'tanggal' => $tanggal,
+          'content' => $cuacaDetail
+       );
 
         $this->response($response, REST_Controller::HTTP_OK);
     }
