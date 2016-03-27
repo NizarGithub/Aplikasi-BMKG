@@ -28,35 +28,35 @@ class CuacaController extends CI_Controller
 
     public function lihatCuacaDetail($idCuaca)
     {
-        $data['cuacaDetail'] = $this->CuacaDetail->ambilDataCuacaDetail($idCuaca);
-        $this->load->view('CuacaDetailView', $data);
+      $data['cuacaDetail'] = $this->CuacaDetail->ambilDataCuacaDetail($idCuaca);
+      $this->load->view('CuacaDetailView', $data);
     }
 
     public function refreshDataCuaca()
     {
-        $list_cuaca   = new SimpleXMLElement('http://data.bmkg.go.id/cuaca_indo_1.xml', null, true);
+        $list_cuaca = new SimpleXMLElement('http://data.bmkg.go.id/cuaca_indo_1.xml', null, true);
         $tanggalMulai = date_create($list_cuaca->Tanggal->Mulai);
 
-        if ($this->Cuaca->ambilDataCuacaBerdasarkanTanggal(date_format($tanggalMulai, "Y-m-d")) == 0) {
+        if ($this->Cuaca->ambilDataCuacaBerdasarkanTanggal(date_format($tanggalMulai,"Y-m-d")) == 0) {
             $idCuaca = $this->uuid->v4();
 
             $valCuaca = array(
-                'id_cuaca' => $idCuaca,
-                'tanggal'  => date_format($tanggalMulai, "Y-m-d"),
+              'id_cuaca' => $idCuaca,
+              'tanggal' => date_format($tanggalMulai,"Y-m-d")
             );
 
             $this->Cuaca->simpanCuaca($valCuaca);
 
             foreach ($list_cuaca->Isi->Row as $c) {
                 $valCuacaDetail = array(
-                    'id_cuaca_detail' => $this->uuid->v4(),
-                    'kota'            => $c->Kota,
-                    'cuaca'           => $c->Cuaca,
-                    'suhu_min'        => $c->SuhuMin,
-                    'suhu_max'        => $c->SuhuMax,
-                    'kelembapan_min'  => $c->KelembapanMin,
-                    'kelembapan_max'  => $c->KelembapanMax,
-                    'id_cuaca'        => $idCuaca,
+                  'id_cuaca_detail' => $this->uuid->v4(),
+                  'kota' => $c->Kota,
+                  'cuaca' => $c->Cuaca,
+                  'suhu_min' => $c->SuhuMin,
+                  'suhu_max' => $c->SuhuMax,
+                  'kelembapan_min' => $c->KelembapanMin,
+                  'kelembapan_max' => $c->KelembapanMax,
+                  'id_cuaca' => $idCuaca
                 );
 
                 $this->CuacaDetail->simpanCuacaDetail($valCuacaDetail);
