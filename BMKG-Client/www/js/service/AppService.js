@@ -3,7 +3,7 @@
 * @Date:   2016-03-17T21:29:31+07:00
 * @Email:  mufrizalrizki@gmail.com
 * @Last modified by:   rizki
-* @Last modified time: 2016-03-27T11:13:44+07:00
+* @Last modified time: 2016-03-27T16:17:39+07:00
 * @License: apache2
 */
 
@@ -14,6 +14,9 @@ angular.module('bmkg')
     return {
       getCuaca: function() {
         return $http.get(baseUrl + '/BMKG-Server/index.php/api/CuacaRestController/cuaca/');
+      },
+      getGempa: function() {
+        return $http.get(baseUrl + '/BMKG-Server/index.php/api/GempaRestController/gempa/');
       }
     }
   }]);
