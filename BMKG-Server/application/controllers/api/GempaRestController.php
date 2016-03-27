@@ -1,28 +1,28 @@
 <?php
 
-/*
-@Author: Rizki Mufrizal <rizki>
-@Date:   2016-03-26T22:26:04+07:00
-@Email:  mufrizalrizki@gmail.com
-@Last modified by:   rizki
-@Last modified time: 2016-03-27T14:33:49+07:00
-@License: apache2
+/**
+ *
+ * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ * Since Mar 27, 2016
+ * Time 8:00:08 PM
+ * Encoding UTF-8
+ * Project BMKG-Server
+ * Package Expression package is undefined on line 12, column 14 in Templates/Scripting/PHPClass.php.
+ * 
  */
-
 require APPPATH . '/libraries/REST_Controller.php';
 
-class GempaRestController extends REST_Controller
-{
-    public function __construct($config = 'rest')
-    {
-        parent::__construct();
+class GempaRestController extends REST_Controller {
+
+    public function __construct($config = 'rest') {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
+        parent::__construct();
         $this->load->model('Gempa');
     }
 
-    public function gempa_get()
-    {
+    public function gempa_get() {
         $gempa = $this->Gempa->ambilDataGempa()[0];
 
         $response = array(
