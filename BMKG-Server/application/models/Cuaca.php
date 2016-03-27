@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 @Last modified by:   rizki
 @Last modified time: 2016-03-26T22:32:43+07:00
 @License: apache2
- */
+*/
 
 class Cuaca extends CI_Model
 {
