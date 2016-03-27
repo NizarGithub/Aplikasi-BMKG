@@ -1,0 +1,19 @@
+<ion-view view-title="Gempa Indonesia {{dataGempa.tanggal}}">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        <ng-map zoom="11" center="[-6,130.94]">
+          <marker position="[-6,130.94]" title="{{dataGempa.wilayah}}" animation="Animation.BOUNCE"></marker>
+        </ng-map>
+      </div>
+      <div class="item item-divider">
+        <h2>{{dataGempa.wilayah}}</h2>
+        <p>Tanggal Dan Jam : {{dataGempa.tanggal}},{{dataGempa.jam}}</p>
+        <p>Lat & Long : {{dataGempa.latitude}}, {{dataGempa.longitude}}</p>
+        <p>Lintang & Bujur : {{dataGempa.lintang}}, {{dataGempa.bujur}}</p>
+        <p>Magnitude : {{dataGempa.magnitude}}</p>
+        <p>Kedalaman : {{dataGempa.kedalaman}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
