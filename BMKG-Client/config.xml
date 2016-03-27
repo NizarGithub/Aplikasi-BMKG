@@ -1,9 +1,9 @@
 <!--
 @Author: Rizki Mufrizal <rizki>
-@Date:   2016-03-26T22:48:38+07:00
+@Date:   2016-03-27T11:24:53+07:00
 @Email:  mufrizalrizki@gmail.com
 @Last modified by:   rizki
-@Last modified time: 2016-03-26T22:59:52+07:00
+@Last modified time: 2016-03-27T11:26:41+07:00
 @License: apache2
 -->
 
@@ -11,11 +11,11 @@
 <widget id="com.ionicframework.bmkgcuaca334163" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Aplikasi BMKG</name>
   <description>
-        merupakan project bmkg
-    </description>
+    merupakan project bmkg
+  </description>
   <author email="mufrizalrizki@gmail.com" href="https://rizkimufrizal.github.io/">
-      Rizki Mufrizal
-    </author>
+    Rizki Mufrizal
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
