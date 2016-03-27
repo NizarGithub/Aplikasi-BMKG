@@ -30,23 +30,23 @@ class GempaController extends CI_Controller
         $list_gempa = new SimpleXMLElement('http://data.bmkg.go.id/gempaterkini.xml', null, true);
 
         foreach ($list_gempa as $lg) {
-            $tanggal   = date_create($lg->Tanggal);
-            $latitude  = explode(',', $lg->point->coordinates)[0];
+            $tanggal = date_create($lg->Tanggal);
+            $latitude = explode(',', $lg->point->coordinates)[0];
             $longitude = explode(',', $lg->point->coordinates)[1];
 
             if ($this->Gempa->ambilDataGempaBerdasarkanTanggalDanJam(date_format($tanggal, 'Y-m-d'), $lg->Jam, $latitude, $longitude) == 0) {
 
                 $valGempa = array(
-                    'id_gempa'  => $this->uuid->v4(),
-                    'tanggal'   => date_format($tanggal, 'Y-m-d'),
-                    'jam'       => $lg->Jam,
-                    'latitude'  => $latitude,
-                    'longitude' => $longitude,
-                    'lintang'   => $lg->Lintang,
-                    'bujur'     => $lg->Bujur,
-                    'magnitude' => $lg->Magnitude,
-                    'kedalaman' => $lg->Kedalaman,
-                    'wilayah'   => $lg->Wilayah,
+                  'id_gempa' => $this->uuid->v4(),
+                  'tanggal' => date_format($tanggal, 'Y-m-d'),
+                  'jam' => $lg->Jam,
+                  'latitude' => $latitude,
+                  'longitude' => $longitude,
+                  'lintang' => $lg->Lintang,
+                  'bujur' => $lg->Bujur,
+                  'magnitude' => $lg->Magnitude,
+                  'kedalaman' => $lg->Kedalaman,
+                  'wilayah' => $lg->Wilayah,
                 );
 
                 $this->Gempa->simpanGempa($valGempa);
