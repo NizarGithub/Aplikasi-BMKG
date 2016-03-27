@@ -3,11 +3,11 @@
 * @Date:   2016-03-17T16:59:22+07:00
 * @Email:  mufrizalrizki@gmail.com
 * @Last modified by:   rizki
-* @Last modified time: 2016-03-27T11:28:55+07:00
+* @Last modified time: 2016-03-27T11:58:05+07:00
 * @License: apache2
 */
 
-angular.module('bmkg', ['ionic'])
+angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -45,6 +45,15 @@ angular.module('bmkg', ['ionic'])
         views: {
           'tab-chats': {
             templateUrl: 'templates/about.html'
+          }
+        }
+      })
+      .state('tab.gempa', {
+        url: '/gempa',
+        views: {
+          'tab-gempa': {
+            templateUrl: 'templates/gempa.html',
+            controller: 'GempaController'
           }
         }
       });
