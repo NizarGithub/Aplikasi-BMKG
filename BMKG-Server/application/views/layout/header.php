@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 <!--
-@Author: Rizki Mufrizal <rizki>
-@Date:   2016-03-27T16:19:06+07:00
-@Email:  mufrizalrizki@gmail.com
-@Last modified by:   rizki
-@Last modified time: 2016-03-27T16:20:48+07:00
-@License: apache2
--->
 
+ Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ Since Mar 27, 2016
+ Time 8:01:46 PM
+ Encoding UTF-8
+ Project BMKG-Server
+ Package Expression package is undefined on line 9, column 12 in Templates/Scripting/EmptyPHPWebPage.php.
+  
+-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -21,7 +23,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>">Cuaca</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/cuaca">Cuaca</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/gempa">Gempa</a></li>
             </ul>
         </div>
