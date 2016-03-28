@@ -2,8 +2,8 @@
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
-        <ng-map zoom="11" center="[-6,130.94]">
-          <marker position="[-6,130.94]" title="{{dataGempa.wilayah}}" animation="Animation.BOUNCE"></marker>
+        <ng-map zoom="6" center="[{{dataGempa.longitude}},{{dataGempa.latitude}}]">
+          <marker position="[{{dataGempa.longitude}},{{dataGempa.latitude}}]" title="{{dataGempa.wilayah}}" animation="Animation.BOUNCE"></marker>
         </ng-map>
       </div>
       <div class="item item-divider">
