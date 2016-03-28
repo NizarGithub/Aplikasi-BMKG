@@ -12,6 +12,20 @@
 <html>
 
     <head>
+
+        <?php
+        $now = time();
+        $today = strtotime('3:00');
+        $tomorrow = strtotime('tomorrow 3:00');
+        if (($today - $now) > 0) {
+            $refreshTime = $today - $now;
+        } else {
+            $refreshTime = $tomorrow - $now;
+        }
+        ?>
+
+        <meta http-equiv=refresh content="<?php echo $refreshTime; ?>; url=<?php echo base_url(); ?>index.php/CuacaController/refreshDataCuaca">
+
         <title>Aplikasi BMKG</title>
         <?php $this->load->view('layout/css') ?>
     </head>

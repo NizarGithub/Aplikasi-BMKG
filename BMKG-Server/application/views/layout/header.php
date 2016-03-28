@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--
 
  Author Rizki Mufrizal <mufrizalrizki@gmail.com>
@@ -18,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url(); ?>">Aplikasi Penjadwalan</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">Aplikasi BMKG</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

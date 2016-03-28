@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--
 
  Author Rizki Mufrizal <mufrizalrizki@gmail.com>
