@@ -19,23 +19,42 @@ class CuacaRestController extends REST_Controller {
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
         parent::__construct();
-        $this->load->model('Cuaca');
     }
 
     public function cuaca_get() {
-        $cuaca = $this->Cuaca->ambilDataCuaca()[0];
+        $url = 'http://data.bmkg.go.id/cuaca_indo_1.xml';
+        $curl = curl_init($url);
 
-        $tanggal = $cuaca->tanggal;
-        $idCuaca = $cuaca->id_cuaca;
-
-        $cuacaDetail = $this->Cuaca->ambilDataCuacaDetail($idCuaca);
-
-        $response = array(
-            'tanggal' => $tanggal,
-            'content' => $cuacaDetail
+        $header = array(
+            "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+            "Cache-Control: max-age=0",
+            "Accept-Charset: UTF-8;q=0.7,*;q=0.7",
+            "Pragma: "
         );
 
-        $this->response($response, REST_Controller::HTTP_OK);
+        $ua = $_SERVER['HTTP_USER_AGENT'];
+
+        $referer = "";
+
+        $timeout = 30;
+
+        curl_setopt($curl, CURLOPT_USERAGENT, $ua);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($curl, CURLOPT_REFERER, $referer);
+        curl_setopt($curl, CURLOPT_AUTOREFERER, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+
+        $cURLxml = curl_exec($curl);
+
+        curl_close($curl);
+
+        $list_cuaca = simplexml_load_string($cURLxml);
+
+        $this->response($list_cuaca, REST_Controller::HTTP_OK);
     }
 
 }

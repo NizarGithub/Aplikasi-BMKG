@@ -12,20 +12,6 @@
 <html>
 
     <head>
-
-        <?php
-        $now = time();
-        $today = strtotime('3:00');
-        $tomorrow = strtotime('tomorrow 3:00');
-        if (($today - $now) > 0) {
-            $refreshTime = $today - $now;
-        } else {
-            $refreshTime = $tomorrow - $now;
-        }
-        ?>
-
-        <meta http-equiv=refresh content="<?php echo $refreshTime; ?>; url=<?php echo base_url(); ?>index.php/CuacaController/refreshDataCuaca">
-
         <title>Aplikasi BMKG</title>
         <?php $this->load->view('layout/css') ?>
     </head>
@@ -35,34 +21,26 @@
 
         <div class="container">
 
-            <a href="<?php echo base_url(); ?>index.php/CuacaController/refreshDataCuaca">
-                <button type="button" class="btn btn-default">
-                    refresh
-                </button>
-            </a>
-
-            <p></p>
-
             <table id="tabel" class="table table-bordered table-hover table-responsive table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">ID Cuaca</th>
-                        <th class="text-center">Tanggal</th>
-                        <th class="text-center">Aksi</th>
+                        <th class="text-center">Kota</th>
+                        <th class="text-center">Cuaca</th>
+                        <th class="text-center">Suhu Minimal</th>
+                        <th class="text-center">Suhu Maksimal</th>
+                        <th class="text-center">Kelembapan Minimal</th>
+                        <th class="text-center">Kelembapan Maksimal</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($cuaca as $c) { ?>
+                    <?php foreach ($cuaca->Isi->Row as $c) { ?>
                         <tr>
-                            <td class="text-center"><?php echo $c->id_cuaca; ?></td>
-                            <td class="text-center"><?php echo $c->tanggal; ?></td>
-                            <td class="text-center">
-                                <a href="<?php echo base_url(); ?>index.php/CuacaController/lihatCuacaDetail/<?php echo $c->id_cuaca ?>">
-                                    <button type="button" class="btn btn-default">
-                                        Detail
-                                    </button>
-                                </a>
-                            </td>
+                            <td class="text-center"><?php echo $c->Kota; ?></td>
+                            <td class="text-center"><?php echo $c->Cuaca; ?></td>
+                            <td class="text-center"><?php echo $c->SuhuMin; ?>&deg</td>
+                            <td class="text-center"><?php echo $c->SuhuMax; ?>&deg</td>
+                            <td class="text-center"><?php echo $c->KelembapanMin; ?>&deg</td>
+                            <td class="text-center"><?php echo $c->KelembapanMax; ?>&deg</td>
                         </tr>
                     <?php } ?>
                 </tbody>

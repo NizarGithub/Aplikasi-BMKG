@@ -14,15 +14,9 @@ class GempaController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Gempa');
     }
 
     public function index() {
-        $data['gempa'] = $this->Gempa->ambilDataGempa();
-        $this->load->view('GempaView', $data);
-    }
-
-    public function refreshDataGempa() {
 
         $url = 'http://data.bmkg.go.id/gempaterkini.xml';
         $curl = curl_init($url);
@@ -56,31 +50,8 @@ class GempaController extends CI_Controller {
 
         $list_gempa = simplexml_load_string($cURLxml);
 
-        foreach ($list_gempa as $lg) {
-            $tanggal = date_create($lg->Tanggal);
-            $latitude = explode(',', $lg->point->coordinates)[0];
-            $longitude = explode(',', $lg->point->coordinates)[1];
-
-            if ($this->Gempa->ambilDataGempaBerdasarkanTanggalDanJam(date_format($tanggal, 'Y-m-d'), $lg->Jam, $latitude, $longitude) == 0) {
-
-                $valGempa = array(
-                    'id_gempa' => $this->uuid->v4(),
-                    'tanggal' => date_format($tanggal, 'Y-m-d'),
-                    'jam' => $lg->Jam,
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'lintang' => $lg->Lintang,
-                    'bujur' => $lg->Bujur,
-                    'magnitude' => $lg->Magnitude,
-                    'kedalaman' => $lg->Kedalaman,
-                    'wilayah' => $lg->Wilayah,
-                );
-
-                $this->Gempa->simpanGempa($valGempa);
-            }
-        }
-
-        redirect('gempa');
+        $data['gempa'] = $list_gempa;
+        $this->load->view('GempaView', $data);
     }
 
 }

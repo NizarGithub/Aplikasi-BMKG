@@ -17,8 +17,8 @@ angular.module('bmkg')
 
     function getCuaca() {
       AppService.getCuaca().success(function(data) {
-        $scope.dataCuaca = data.content;
-        $scope.tanggal = data.tanggal;
+        $scope.dataCuaca = data.Isi.Row;
+        $scope.tanggal = data.Tanggal.Mulai;
       });
     }
 

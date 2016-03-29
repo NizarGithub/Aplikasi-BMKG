@@ -12,20 +12,6 @@
 <html>
 
     <head>
-
-        <?php
-        $now = time();
-        $today = strtotime('3:00');
-        $tomorrow = strtotime('tomorrow 3:00');
-        if (($today - $now) > 0) {
-            $refreshTime = $today - $now;
-        } else {
-            $refreshTime = $tomorrow - $now;
-        }
-        ?>
-
-        <meta http-equiv=refresh content="<?php echo $refreshTime; ?>; url=<?php echo base_url(); ?>index.php/GempaController/refreshDataGempa">
-
         <title>Aplikasi BMKG</title>
         <?php $this->load->view('layout/css') ?>
     </head>
@@ -46,7 +32,6 @@
             <table id="tabel" class="table table-bordered table-hover table-responsive table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">ID Gempa</th>
                         <th class="text-center">Tanggal Dan Jam</th>
                         <th class="text-center">Latitude Dan Longitude</th>
                         <th class="text-center">Lintang</th>
@@ -57,16 +42,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($gempa as $g) { ?>
+                    <?php foreach ($gempa->gempa as $g) { ?>
                         <tr>
-                            <td class="text-center"><?php echo $g->id_gempa; ?></td>
-                            <td class="text-center"><?php echo $g->tanggal; ?>, <?php echo $g->jam; ?></td>
-                            <td class="text-center"><?php echo $g->latitude; ?>, <?php echo $g->longitude; ?></td>
-                            <td class="text-center"><?php echo $g->lintang; ?></td>
-                            <td class="text-center"><?php echo $g->bujur; ?></td>
-                            <td class="text-center"><?php echo $g->magnitude; ?></td>
-                            <td class="text-center"><?php echo $g->kedalaman; ?></td>
-                            <td class="text-center"><?php echo $g->wilayah; ?></td>
+                            <td class="text-center"><?php echo $g->Tanggal; ?>, <?php echo $g->Jam; ?></td>
+                            <td class="text-center"><?php echo $g->point->coordinates; ?></td>
+                            <td class="text-center"><?php echo $g->Lintang; ?></td>
+                            <td class="text-center"><?php echo $g->Bujur; ?></td>
+                            <td class="text-center"><?php echo $g->Magnitude; ?></td>
+                            <td class="text-center"><?php echo $g->Kedalaman; ?></td>
+                            <td class="text-center"><?php echo $g->Wilayah; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

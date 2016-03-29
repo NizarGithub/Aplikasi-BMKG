@@ -14,7 +14,10 @@ angular.module('bmkg')
 
     function getGempa() {
       AppService.getGempa().success(function(data) {
-        $scope.dataGempa = data.content;
+        $scope.dataGempa = data.gempa[0];
+        $scope.longitude = data.gempa[0].point.coordinates.split(",")[0];
+        $scope.latitude = data.gempa[0].point.coordinates.split(",")[1];
+        console.log($scope.longitude);
       });
     }
 
