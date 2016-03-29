@@ -1,13 +1,19 @@
 <ion-view view-title="Cuaca Indonesia, {{tanggal | date: 'd MMM y'}}">
   <ion-content class="padding">
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Cari Kota" ng-model="cari" />
+      </label>
+    </div>
     <div class="list">
-      <a class="item item-thumbnail-left" href="#" ng-repeat="d in dataCuaca">
+      <a class="item item-thumbnail-left" href="#" ng-repeat="d in dataCuaca | filter:cari">
         <img ng-src="{{url}}{{d.Cuaca}}.gif">
         <h2>{{d.Kota}}</h2>
-        <p>Cuaca               : {{d.Cuaca}}</p>
-        <p>Suhu Minimal        : {{d.SuhuMin}}&deg</p>
-        <p>Suhu Maksimal       : {{d.SuhuMax}}&deg</p>
-        <p>Kelembapan Minimal  : {{d.KelembapanMin}}&deg</p>
+        <p>Cuaca : {{d.Cuaca}}</p>
+        <p>Suhu Minimal : {{d.SuhuMin}}&deg</p>
+        <p>Suhu Maksimal : {{d.SuhuMax}}&deg</p>
+        <p>Kelembapan Minimal : {{d.KelembapanMin}}&deg</p>
         <p>Kelembapan Maksimal : {{d.KelembapanMax}}&deg</p>
       </a>
     </div>
