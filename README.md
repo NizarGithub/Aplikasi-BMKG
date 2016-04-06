@@ -6,4 +6,4 @@ Teknologi yang digunakan :
 
 * Ionic
 * CodeIgniter
-* MySQL
+* CodeIgniter Rest Server
