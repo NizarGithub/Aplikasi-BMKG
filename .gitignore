@@ -142,5 +142,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-BMKG-Native/.idea/*
-BMKG-Native/.idea/misc.xml
+BMKG-Native/.idea
