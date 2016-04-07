@@ -24,6 +24,7 @@
                 <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/cuaca">Cuaca</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/gempa">Gempa</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/gempamap">Map Gempa</a></li>
             </ul>
         </div>
     </div>
