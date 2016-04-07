@@ -53,6 +53,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'CuacaController';
 $route['cuaca']['GET'] = 'CuacaController/index';
 $route['gempa']['GET'] = 'GempaController/index';
+$route['gempamap']['GET'] = 'GempaController/tampilGempa';
 $route['api/cuaca']['GET'] = 'api/CuacaRestController/cuaca';
 $route['api/gempa']['GET'] = 'api/GempaRestController/gempa';
 $route['404_override'] = '';
