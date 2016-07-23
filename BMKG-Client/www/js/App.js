@@ -7,7 +7,7 @@
 * @License: apache2
 */
 
-angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap'])
+angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap', 'angular-toArrayFilter'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
