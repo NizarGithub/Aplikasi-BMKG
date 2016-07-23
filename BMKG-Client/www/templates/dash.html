@@ -7,7 +7,7 @@
       </label>
     </div>
     <div class="list">
-      <a class="item item-thumbnail-left" href="#" ng-repeat="d in dataCuaca | filter:cari">
+      <a class="item item-thumbnail-left" href="#" ng-repeat="d in dataCuaca | toArray | filter: cari">
         <img ng-src="{{url}}{{d.Cuaca}}.gif">
         <h2>{{d.Kota}}</h2>
         <p>Cuaca : {{d.Cuaca}}</p>
