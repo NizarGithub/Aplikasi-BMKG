@@ -7,7 +7,7 @@
 * @License: apache2
 */
 
-angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap', 'angular-toArrayFilter'])
+angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap', 'angular-toArrayFilter', 'ionic-native-transitions'])
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -33,6 +33,11 @@ angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap', 'angular-toArrayFilter'])
       })
       .state('tab.dash', {
         url: '/dash',
+        nativeTransitions: {
+          type: "slide",
+          direction: "right",
+          fixedPixelsTop: 93
+        },
         views: {
           'tab-dash': {
             templateUrl: 'templates/dash.html',
@@ -40,16 +45,26 @@ angular.module('bmkg', ['ionic', 'ngCordova', 'ngMap', 'angular-toArrayFilter'])
           }
         }
       })
-      .state('tab.chats', {
-        url: '/chats',
+      .state('tab.about', {
+        url: '/about',
+        nativeTransitions: {
+          "type": "flip",
+          "direction": "right",
+          fixedPixelsTop: 93
+        },
         views: {
-          'tab-chats': {
+          'tab-about': {
             templateUrl: 'templates/about.html'
           }
         }
       })
       .state('tab.gempa', {
         url: '/gempa',
+        nativeTransitions: {
+          type: "slide",
+          direction: "left",
+          fixedPixelsTop: 93
+        },
         views: {
           'tab-gempa': {
             templateUrl: 'templates/gempa.html',
